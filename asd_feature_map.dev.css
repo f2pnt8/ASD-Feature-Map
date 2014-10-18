@@ -1,0 +1,142 @@
+@charset "UTF-8";
+/* To use icon from plugin in theme CSS use:
+[ELEMENT] {background: url('../../plugins/asd_feature_map/images/icons/[ICON NAME].png') no-repeat center;}
+ */
+.post-type-asd_feature_map th.column-asd_feature_place_icon {
+    width: 6%;
+}
+
+@media only screen and (max-width: 767px) {
+    .post-type-asd_feature_map th.column-asd_feature_place_icone {
+        width: 10%;
+    }
+}
+
+.post-type-asd_feature_map td.column-asd_feature_place_icon {
+    text-align: center;
+}
+
+/* Admin Icon Selector Box */
+.post-type-asd_feature_map .acf-image-image {
+    border: 1px solid #ddd;
+    padding: .5em;
+    background: #fafafa;
+    border-radius: 5px;
+}
+ /*#acf-field_53fe946883c35 */
+
+#wpbody [data-name=asd_feature_place_icon] {
+    margin-left: 4em;
+    position: relative;
+    width: 50%;
+}
+
+#asd-icon-preview {
+    width: 3em;
+    text-align: center;
+    margin-top: -2.5em;
+    height: 3em;
+    margin-left: -4em;
+}
+
+#asd-map-container .canvas_map img {
+    max-width: inherit !important;
+}
+
+#asd-map-place .gm-style-iw {
+    height: auto !important;
+}
+
+/* jQueryUI Tabs Styles */
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+    content: "";
+    display: table;
+    border-collapse: collapse;
+}
+
+.ui-helper-clearfix:after {
+    clear: both;
+}
+
+.ui-widget-content {
+}
+
+.ui-widget-header {
+}
+
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+}
+
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+}
+
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+}
+
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+    text-decoration: none;
+}
+
+.ui-tabs {
+    position: relative;
+    /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+    padding: .2em;
+}
+
+.ui-tabs .ui-tabs-nav {
+    margin: 0;
+    padding: .2em .2em 0;
+}
+
+.ui-tabs .ui-tabs-nav li {
+    display: inline-block;
+    list-style: none;
+    position: relative;
+    padding: 0;
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-anchor {
+    display: inline-block;
+    padding: .5em 1em;
+    text-decoration: none;
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-active.loading {
+}
+
+.ui-tabs .ui-tabs-panel {
+    display: block;
+    padding: 1em 1.4em;
+}
