@@ -25,7 +25,7 @@
 }
  /*#acf-field_53fe946883c35 */
 
-#wpbody [data-name=asd_feature_place_icon] {
+#wpbody [data-field_name=asd_feature_place_icon] {
     margin-left: 4em;
     position: relative;
     width: 50%;

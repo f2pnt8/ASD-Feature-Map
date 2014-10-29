@@ -5,7 +5,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.7
+ * @version: 1.2.8
  * Requires at least: 3.8
  * Tested up to: 3.9.2
  *
@@ -26,12 +26,6 @@
  * Learn more at http://fgnass.github.io/spin.js/
  * Spin.js is Licensed under the MIT license
  */
-
-/**
- * TODO add category image
- * todo add option to show image/text
- *
- * /
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +58,7 @@ if (
     include_once( 'includes/advanced-custom-fields/acf.php' );
 
     // Hide ACF from the Admin Side
-//    define( 'ACF_LITE', true );
+    // define( 'ACF_LITE', true );
 
 }
 
@@ -166,6 +160,9 @@ function asd_feature_map_messages ( $messages ) {
 */
 
 register_activation_hook( __FILE__, 'asd_feature_map_rewrite_flush' );
+/**
+ * Flush Rewrite Rules on Activation
+ */
 function asd_feature_map_rewrite_flush () {
     asd_feature_map();
     // ATTENTION: This is *only* done during plugin activation hook
@@ -753,28 +750,16 @@ if ( function_exists( "register_field_group" ) ) {
                 'name' => 'asd_feature_map_location',
                 'type' => 'google_map',
                 'instructions' => 'Search for an address, city, state, point of interest, etc...',
-                'center' => array (
-                    'lat' => 39.011902,
-                    'lng' => -98.484246499999985,
-                ),
-//                array (
-//                    'key' => 'field_53fd57dae7991',
-//                    'label' => 'map',
-//                    'name' => 'map',
-//                    'type' => 'google_map',
-//                    'center_lat' => '39.011902',
-//                    'center_lng' => '-98.484246499999985',
-//                    'zoom' => '',
-//                    'height' => '',
-//                ),
-                'zoom' => 4,
+                'center_lat' => '39.011902',
+                'center_lng' => '-98.484246499999985',
+//                'zoom' => '12',
             ),
             array (
                 'key' => 'field_533ce8c59024f',
                 'label' => 'Place Icon',
                 'name' => 'asd_feature_place_icon',
                 'type' => 'select',
-                'instructions' => 'Select an Icon for the Place in the map',
+                'instructions' => 'Select an icon for the place on the map. Select "custom" to upload a file.',
                 'choices' => array (
                     'marker' => 'Marker',
                     'custom' => 'Custom Icon ...',
@@ -889,7 +874,7 @@ if ( function_exists( "register_field_group" ) ) {
                 'label' => 'Map Zoom',
                 'name' => 'asd_feature_map_zoom',
                 'type' => 'select',
-                'instructions' => 'Please select a Map Zoom Level. 1 shows more area 20 shows maximum detail',
+                'instructions' => 'Please select a Map Zoom Level from 1 (large area) to 20 (maximum detail)',
                 'choices' => array (
                     1 => '1 - The Entire World',
                     2 => 2,
@@ -921,7 +906,7 @@ if ( function_exists( "register_field_group" ) ) {
                 'label' => 'Info Bubble',
                 'name' => 'asd_feature_map_bubble',
                 'type' => 'text',
-                'instructions' => 'Enter the Text to appear in the Pop-up Bubble',
+                'instructions' => 'Enter the Text to appear in the pop-up info bubble',
                 'default_value' => '',
                 'placeholder' => '',
                 'prepend' => '',
