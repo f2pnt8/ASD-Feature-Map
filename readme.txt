@@ -34,6 +34,12 @@ http://www.alexstillwagon.com/
 5. Load the map display via the shortcode [feature-map]
 
 == Changelog ==
+1.2.9
+===
+[Fixed] Updated ACF detection function
+[Update] Updated embed Library - ACF to 4.3.9
+
+
 1.2.6
 ===
 [Update] Updated embed Library - ACF to 4.3.7
@@ -42,7 +48,7 @@ http://www.alexstillwagon.com/
 ===
 [Feature] - Added Map / Direction External Links w/ Apple Map support
 [Fixed] Incorrect column header for place Title
-[Update] Updated embed Library - ACF to 4.3.7
+[Update] Updated embed Library - ACF to 4.3.6
 
 1.2.4
 ===
