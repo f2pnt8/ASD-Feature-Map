@@ -4,7 +4,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.5
+ * @version: 1.2.9
  */
 jQuery(document).ready(function ($) {
 
@@ -59,7 +59,7 @@ jQuery(document).ready(function ($) {
      */
 
     // Find the icon container
-    var $iconDiv = $('[data-field_name="asd_feature_place_icon"]');
+    var $iconDiv = $('[data-name="asd_feature_place_icon"]');
 
     // Add <div> to display icons
     $iconDiv.append('<div id="asd-icon-preview"></div>');
@@ -88,7 +88,7 @@ jQuery(document).ready(function ($) {
  * Function to Display
  */
 
-jQuery('[data-field_name="asd_feature_place_icon"]').find('select').change(function () {
+jQuery('[data-name="asd_feature_place_icon"]').find('select').change(function () {
     var $link = jQuery(this).val();
 
     if ($link == 'custom') {

@@ -345,54 +345,54 @@ class acf
 	function include_before_theme()
 	{
 		// incudes
-		include_once('core/api.php');
+		include_once ( 'core/api.php' );
 		
-		include_once('core/controllers/input.php');
-		include_once('core/controllers/location.php');
-		include_once('core/controllers/field_group.php');
+		include_once ( 'core/controllers/input.php' );
+		include_once ( 'core/controllers/location.php' );
+		include_once ( 'core/controllers/field_group.php' );
 		
 		
 		// admin only includes
 		if( is_admin() )
 		{
-			include_once('core/controllers/post.php');
-			include_once('core/controllers/revisions.php');
-			include_once('core/controllers/everything_fields.php');	
-			include_once('core/controllers/field_groups.php');
+			include_once ( 'core/controllers/post.php' );
+			include_once ( 'core/controllers/revisions.php' );
+			include_once ( 'core/controllers/everything_fields.php' );
+			include_once ( 'core/controllers/field_groups.php' );
 		}
 		
 		
 		// register fields
-		include_once('core/fields/_functions.php');
-		include_once('core/fields/_base.php');
+		include_once ( 'core/fields/_functions.php' );
+		include_once ( 'core/fields/_base.php' );
 		
-		include_once('core/fields/text.php');
-		include_once('core/fields/textarea.php');
-		include_once('core/fields/number.php');
-		include_once('core/fields/email.php');
-		include_once('core/fields/password.php');
+		include_once ( 'core/fields/text.php' );
+		include_once ( 'core/fields/textarea.php' );
+		include_once ( 'core/fields/number.php' );
+		include_once ( 'core/fields/email.php' );
+		include_once ( 'core/fields/password.php' );
 		
-		include_once('core/fields/wysiwyg.php');
-		include_once('core/fields/image.php');
-		include_once('core/fields/file.php');
+		include_once ( 'core/fields/wysiwyg.php' );
+		include_once ( 'core/fields/image.php' );
+		include_once ( 'core/fields/file.php' );
 		
-		include_once('core/fields/select.php');
-		include_once('core/fields/checkbox.php');
-		include_once('core/fields/radio.php');
-		include_once('core/fields/true_false.php');
+		include_once ( 'core/fields/select.php' );
+		include_once ( 'core/fields/checkbox.php' );
+		include_once ( 'core/fields/radio.php' );
+		include_once ( 'core/fields/true_false.php' );
 		
-		include_once('core/fields/page_link.php');
-		include_once('core/fields/post_object.php');
-		include_once('core/fields/relationship.php');
-		include_once('core/fields/taxonomy.php');
-		include_once('core/fields/user.php');
+		include_once ( 'core/fields/page_link.php' );
+		include_once ( 'core/fields/post_object.php' );
+		include_once ( 'core/fields/relationship.php' );
+		include_once ( 'core/fields/taxonomy.php' );
+		include_once ( 'core/fields/user.php' );
 		
-		include_once('core/fields/google-map.php');
-		include_once('core/fields/date_picker/date_picker.php');
-		include_once('core/fields/color_picker.php');
+		include_once ( 'core/fields/google-map.php' );
+		include_once ( 'core/fields/date_picker/date_picker.php' );
+		include_once ( 'core/fields/color_picker.php' );
 		
-		include_once('core/fields/message.php');
-		include_once('core/fields/tab.php');
+		include_once ( 'core/fields/message.php' );
+		include_once ( 'core/fields/tab.php' );
 
 	}
 	
@@ -454,10 +454,10 @@ class acf
 		// admin only includes
 		if( is_admin() )
 		{
-			include_once('core/controllers/export.php');
-			include_once('core/controllers/addons.php');
-			include_once('core/controllers/third_party.php');
-			include_once('core/controllers/upgrade.php');
+			include_once ( 'core/controllers/export.php' );
+			include_once ( 'core/controllers/addons.php' );
+			include_once ( 'core/controllers/third_party.php' );
+			include_once ( 'core/controllers/upgrade.php' );
 		}
 		
 	}

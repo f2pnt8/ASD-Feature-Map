@@ -5,7 +5,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.8
+ * @version: 1.2.9
  * Requires at least: 3.8
  * Tested up to: 3.9.2
  *
@@ -52,10 +52,10 @@ if ( !defined( 'AFM_PLUGIN_URL' ) ) {
 if (
     ! in_array( 'advanced-custom-fields/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ||
     ! in_array( 'advanced-custom-fields-pro/acf.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) )
-) {
+    ) {
 
     // Embed Advanced Custom Fields Plugin
-    include_once( 'includes/advanced-custom-fields/acf.php' );
+    include_once ( 'includes/advanced-custom-fields/acf.php' );
 
     // Hide ACF from the Admin Side
     // define( 'ACF_LITE', true );
@@ -370,8 +370,8 @@ function asd_feature_map_manage_columns ( $column, $post_id ) {
 function asd_feature_map_get_template ( $template ) {
 
     // Get the template slug
-    $template_slug = rtrim( $template, '.php' );
-    $template = $template_slug . '.php';
+//    $template_slug = rtrim( $template, '.php' );
+//    $template = $template_slug . '.php';
 
     // Check if a custom template exists in the theme folder, if not, load the plugin template file
     if ( $theme_file = locate_template( array ( 'feature-map/' . $template ) ) ) {
@@ -381,32 +381,29 @@ function asd_feature_map_get_template ( $template ) {
         $file = AFM_BASE_DIR . '/templates/' . $template;
     }
 
-    return apply_filters( 'asd_feature_map_template_' . $template, $file );
+    return $file;
 }
 
-//add_filter( 'template_include', 'asd_feature_map_template_chooser' );
+add_filter( 'template_include', 'asd_feature_map_template_chooser' );
 /**
  * Displays Template for Archive page of Custom Post Type (CPT)
  * @param $template
  * @return mixed|void
  */
-//function asd_feature_map_template_chooser( $template ) {
-// Post ID
-//    TODO create general page template and Single Place Page Template
-//    $post_id = get_the_ID();
-//    $post_type_test = get_post_type();
-//
-//    // For all other CPT
-//    if ( get_post_type() != 'asd_feature_map' ) {
-//        return $template;
-//    }
+function asd_feature_map_template_chooser( $template ) {
 
-// Else use custom template
-//    if ( is_single() ) {
-//        return asd_feature_map_get_template( 'single-place' );
-//    }
+    // For all other CPT
+    if ( get_post_type() != 'asd_feature_map' ) {
+        return $template;
+    }
 
-//}
+    // Else use custom template
+    if ( is_single() ) {
+        return asd_feature_map_get_template( 'single-place' );
+    }
+
+
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -415,7 +412,7 @@ function asd_feature_map_get_template ( $template ) {
 */
 // Setup Shortcode Handler
 function asd_feature_map_shortcode_handler () {
-    $shortcode_template = 'templates/shortcode-feature-map.php';
+    $shortcode_template = asd_feature_map_get_template( 'shortcode-feature-map.php' );
 
     ob_start();
     include $shortcode_template;
@@ -624,7 +621,7 @@ function asd_feature_map_ajax () {
 
             // Setup some Loop vars
             $place = get_fields();
-
+            
             // Lat / Lon Position
             $lat = $place['asd_feature_map_location']['lat'];
             $lng = $place['asd_feature_map_location']['lng'];
