@@ -651,10 +651,12 @@ function asd_feature_map_ajax () {
                 if ( $directions == 'map' ) {
                     $place_name .= '<p class=\'directions\' data-lat=\'' . $lat . '\' data-lng=\'' . $lng . '\'  data-name=\'' . $link . '\'';
 
-                    $place_name .= ' data-os=\'false\'';
-
                     if ( $is_iphone || $is_safari ) {
                         $place_name .= ' data-os=\'true\'';
+                    }
+
+                    else {
+                        $place_name .= ' data-os=\'false\'';
                     }
 
                     $place_name .= '></p>';
@@ -663,10 +665,13 @@ function asd_feature_map_ajax () {
                 if ( $directions == 'directions' ) {
                     $place_name .= '<p class=\'directions\' data-lat=\'' . $lat . '\' data-lng=\'' . $lng . '\' data-addr=\'' . str_replace( ' ', '+', $place['asd_feature_map_location']['address'] ) . '\' data-name=\'' . $link . '\'';
 
-                    $place_name .= ' data-os=\'false\'';
 
                     if ( $is_iphone || $is_safari ) {
                         $place_name .= ' data-os=\'true\'';
+                    }
+
+                    else {
+                        $place_name .= ' data-os=\'false\'';
                     }
 
                     $place_name .= '></p>';
