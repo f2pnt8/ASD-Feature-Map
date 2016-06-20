@@ -59,10 +59,13 @@ jQuery(document).ready(function ($) {
      */
 
     // Find the icon container
-    var $iconDiv = $('[data-name="asd_feature_place_icon"]');
+    //var $iconDiv = $('[data-field_name="asd_feature_place_icon"]');
+    var $iconDiv = $('#acf-asd_feature_place_icon');
 
     // Add <div> to display icons
     $iconDiv.append('<div id="asd-icon-preview"></div>');
+
+    var $iconPreview = $('#asd-icon-preview');
 
     // Set the icon based on the <select>
     var $link = $iconDiv.find('select').val();
@@ -74,12 +77,12 @@ jQuery(document).ready(function ($) {
         $link = $('#acf-asd_feature_map_upload_icon').find('img.acf-image-image').attr('src');
 
         // Add <img> to the display <div>
-        $('#asd-icon-preview').html('<img src="' + $link + '" alt="map icon" />');
+        $iconPreview.html('<img src="' + $link + '" alt="map icon" />');
     }
     else { // General, not custom, icon used
 
         // Add <img> to the display <div>
-        $('#asd-icon-preview').html('<img src="' + mapPath + 'images/icons/' + $link + '.png" alt="map icon" />');
+        $iconPreview.html('<img src="' + mapPath + 'images/icons/' + $link + '.png" alt="map icon" />');
     }
 
 });
@@ -88,7 +91,7 @@ jQuery(document).ready(function ($) {
  * Function to Display
  */
 
-jQuery('[data-name="asd_feature_place_icon"]').find('select').change(function () {
+jQuery('#acf-asd_feature_place_icon').find('select').change(function () {
     var $link = jQuery(this).val();
 
     if ($link == 'custom') {

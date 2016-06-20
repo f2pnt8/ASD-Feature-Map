@@ -23,9 +23,8 @@
     background: #fafafa;
     border-radius: 5px;
 }
- /*#acf-field_53fe946883c35 */
 
-#wpbody [data-name=asd_feature_place_icon] {
+#acf-asd_feature_place_icon {
     margin-left: 4em;
     position: relative;
     width: 50%;

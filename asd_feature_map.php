@@ -384,26 +384,26 @@ function asd_feature_map_get_template ( $template ) {
     return $file;
 }
 
-add_filter( 'template_include', 'asd_feature_map_template_chooser' );
-/**
- * Displays Template for Archive page of Custom Post Type (CPT)
- * @param $template
- * @return mixed|void
- */
-function asd_feature_map_template_chooser( $template ) {
-
-    // For all other CPT
-    if ( get_post_type() != 'asd_feature_map' ) {
-        return $template;
-    }
-
-    // Else use custom template
-    if ( is_single() ) {
-        return asd_feature_map_get_template( 'single-place' );
-    }
-
-
-}
+//add_filter( 'template_include', 'asd_feature_map_template_chooser' );
+///**
+// * Displays Template for Archive page of Custom Post Type (CPT)
+// * @param $template
+// * @return mixed|void
+// */
+//function asd_feature_map_template_chooser( $template ) {
+//
+//    // For all other CPT
+//    if ( get_post_type() != 'asd_feature_map' ) {
+//        return $template;
+//    }
+//
+//    // Else use custom template
+//    if ( is_single() ) {
+//        return asd_feature_map_get_template( 'single-place' );
+//    }
+//
+//
+//}
 
 /*
 |--------------------------------------------------------------------------
@@ -415,6 +415,7 @@ function asd_feature_map_shortcode_handler () {
     $shortcode_template = asd_feature_map_get_template( 'shortcode-feature-map.php' );
 
     ob_start();
+    /** @noinspection PhpIncludeInspection */
     include $shortcode_template;
     $result_string = ob_get_contents();
     ob_end_clean();
@@ -499,6 +500,7 @@ function asd_feature_map_set_default_category () {
 /**
  * Display navigation to next/previous pages when applicable
  * From _s (underscores) More info at http://www.underscores.me
+ * @param $nav_id
  */
 function asd_feature_map_content_nav ( $nav_id ) {
     global $wp_query, $post;
