@@ -4,7 +4,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.5
+ * @version: 1.2.6
  *
  * Note that jQuery is loaded in safe mode for use in WP ( i.e. no '$' var. Instead the full 'jQuery' var. )
  *
@@ -107,7 +107,7 @@ function addDirections() {
             var $address = $directions.attr('data-addr');
             if ($lat) { // If Location is set
                 if ($address) { // Show Directions
-                    return '<p><a href="https://www.google.com/maps/dir//' + $address + '/@' + $lat + ',' + $lng + '">Get Directions</a></p>';
+                    return '<p><a href="https://www.google.com/maps/dir/' + $address + '/@' + $lat + ',' + $lng + '">Get Directions</a></p>';
                 }
                 else { // Show Place
                     return '<p><a href="https://www.google.com/maps/place/' + $lat + ',' + $lng + '">Map It</a></p>';
