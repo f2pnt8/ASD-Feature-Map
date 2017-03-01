@@ -4,7 +4,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.9
+ * @version: 1.3.0
  */
 jQuery(document).ready(function ($) {
 
@@ -60,7 +60,7 @@ jQuery(document).ready(function ($) {
 
     // Find the icon container
     //var $iconDiv = $('[data-field_name="asd_feature_place_icon"]');
-    var $iconDiv = $('#acf-asd_feature_place_icon');
+    var $iconDiv = $('[data-name="asd_feature_place_icon"]');
 
     // Add <div> to display icons
     $iconDiv.append('<div id="asd-icon-preview"></div>');
@@ -85,28 +85,29 @@ jQuery(document).ready(function ($) {
         $iconPreview.html('<img src="' + mapPath + 'images/icons/' + $link + '.png" alt="map icon" />');
     }
 
-});
 
 /**
  * Function to Display
  */
 
-jQuery('#acf-asd_feature_place_icon').find('select').change(function () {
-    var $link = jQuery(this).val();
+$iconDiv.find('select').change(function () {
+    var $link = $(this).val();
 
     if ($link == 'custom') {
-        $link = jQuery('#acf-asd_feature_map_upload_icon').find('img.acf-image-image').attr('src');
+        $link = $('[data-name="asd_feature_map_upload_icon"]').find('img[data-name="image"]').attr('src');
 
         if ($link) {
-            jQuery('#asd-icon-preview').html('<img src="' + $link + '" alt="map icon" />');
+           $('#asd-icon-preview').html('<img src="' + $link + '" alt="map icon" height="32" width="32" />');
         }
         else {
-            jQuery('#asd-icon-preview').html('<img src="' + mapPath + '/images/icons/custom.png" alt="map icon" />');
+            $('#asd-icon-preview').html('<img src="' + mapPath + '/images/icons/custom.png" alt="map icon" />');
         }
 
     }
     else {
-        jQuery('#asd-icon-preview').html('<img src="' + mapPath + '/images/icons/' + $link + '.png" alt="map icon" />');
+        $('#asd-icon-preview').html('<img src="' + mapPath + '/images/icons/' + $link + '.png" alt="map icon" />');
     }
+
+});
 
 });

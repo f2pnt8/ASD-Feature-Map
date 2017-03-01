@@ -24,10 +24,13 @@
     border-radius: 5px;
 }
 
-#acf-asd_feature_place_icon {
+[data-name="asd_feature_place_icon"] {
+    width: 50%;
+}
+
+[data-name="asd_feature_place_icon"]  .acf-input {
     margin-left: 4em;
     position: relative;
-    width: 50%;
 }
 
 #asd-icon-preview {
@@ -35,7 +38,12 @@
     text-align: center;
     margin-top: -2.5em;
     height: 3em;
-    margin-left: -4em;
+    /*margin-left: -4em;*/
+}
+
+#asd-icon-preview img {
+    max-width: 32px;
+    height:auto;
 }
 
 #asd-map-container .canvas_map img {
