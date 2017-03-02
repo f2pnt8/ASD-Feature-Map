@@ -21,16 +21,12 @@ $map_cat_args = array (
 // Load Map Categories into an Array
 $map_cats = get_terms ( 'asd_map_category', $map_cat_args );
 
-// Count map categories
-$map_cat_count = count ( $map_cats );
+// Get a list of array keys
+$cat_count = array_keys( $map_cats );
 
-if ( $map_cat_count != 0 ) {
-        $cat_index = 1;
-    if ( $map_cat_count > 1 ) {
-        $cat_index = 0;
-    }
-}
-$cat_index = 0;
+// Get the first key number to use as the Map Place index
+$cat_index = ( array_shift ( array_values ( $cat_count ) ) ) ;
+
 ?>
 
 <div id="asd-map-wrap">
