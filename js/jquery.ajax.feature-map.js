@@ -71,7 +71,7 @@ function showGroup(index) {
  * @return string
  */
 function addDirections() {
-    var $container = jQuery('#asd-map-controls').find('li'); // TODO fix this to work with categories
+    var $container = jQuery('#asd-map-controls').find('li');
     var $is_apple = jQuery('.directions').attr('data-os');
 
     // Checks if iOS device or Apple Safari browser
@@ -85,10 +85,10 @@ function addDirections() {
 
             if ($lat) { // If Location is set
                 if ($address) { // Show Directions
-                    return '<p><a href="http://maps.apple.com/?ll=' + $lat + ',' + $lng + '&daddr=' + $address + '">Get Directions</a></p>';
+                    return '<p><a href="http://maps.apple.com/?ll=' + $lat + ',' + $lng + '&daddr=' + $address + '" class="button">Get Directions</a></p>';
                 }
                 else { // Show Place
-                    return '<p><a href="http://maps.apple.com/?ll=' + $lat + ',' + $lng + '">Map It</a></p>';
+                    return '<p><a href="http://maps.apple.com/?ll=' + $lat + ',' + $lng + '"  class="button">Map It</a></p>';
                 }
 
             }
@@ -107,10 +107,10 @@ function addDirections() {
             var $address = $directions.attr('data-addr');
             if ($lat) { // If Location is set
                 if ($address) { // Show Directions
-                    return '<p><a href="https://www.google.com/maps/dir/' + $address + '/@' + $lat + ',' + $lng + '">Get Directions</a></p>';
+                    return '<p><a href="https://www.google.com/maps/dir/' + $address + '/@' + $lat + ',' + $lng + '"  class="button">Get Directions</a></p>';
                 }
                 else { // Show Place
-                    return '<p><a href="https://www.google.com/maps/place/' + $lat + ',' + $lng + '">Map It</a></p>';
+                    return '<p><a href="https://www.google.com/maps/place/' + $lat + ',' + $lng + '"  class="button">Map It</a></p>';
                 }
             }
             else { // If no Location Set - Show None

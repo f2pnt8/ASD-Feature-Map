@@ -1,15 +1,24 @@
 @charset "UTF-8";
-/* To use icon from plugin in theme CSS use:
+
+/*
+* Plugin Name:Alex's Feature Maps
+* Description: Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
+* @author: Alex Stillwagon
+* @package Alex's Feature Maps
+* Author URI: http://alexstillwagon.com
+* @version: 1.2.9
+* /
+
+/*
+NOTE:  To use icon from plugin in theme CSS use:
+
 [ELEMENT] {background: url('../../plugins/asd_feature_map/images/icons/[ICON NAME].png') no-repeat center;}
+
  */
+
+/* ADMIN ////////////////////////////////////////////////////////////////// */
 .post-type-asd_feature_map th.column-asd_feature_place_icon {
     width: 6%;
-}
-
-@media only screen and (max-width: 767px) {
-    .post-type-asd_feature_map th.column-asd_feature_place_icon {
-        width: 10%;
-    }
 }
 
 .post-type-asd_feature_map td.column-asd_feature_place_icon {
@@ -18,10 +27,10 @@
 
 /* Admin Icon Selector Box */
 .post-type-asd_feature_map .acf-image-image {
-    border: 1px solid #ddd;
     padding: .5em;
-    background: #fafafa;
+    border: 1px solid #ddd;
     border-radius: 5px;
+    background: #fafafa;
 }
 
 [data-name="asd_feature_place_icon"] {
@@ -29,84 +38,26 @@
 }
 
 [data-name="asd_feature_place_icon"]  .acf-input {
-    margin-left: 4em;
     position: relative;
+    margin-left: 4em;
 }
 
 #asd-icon-preview {
-    width: 3em;
-    text-align: center;
     margin-top: -2.5em;
+    width: 3em;
     height: 3em;
+    text-align: center;
     /*margin-left: -4em;*/
 }
 
 #asd-icon-preview img {
     max-width: 32px;
-    height:auto;
+    height: auto;
 }
 
-#asd-map-container .canvas_map img {
-    max-width: inherit !important;
-}
+/* PUBLIC ////////////////////////////////////////////////////////////////// */
 
-#asd-map-place .gm-style-iw {
-    height: auto !important;
-    color: #000;
-}
-
-/* jQueryUI Tabs Styles */
-.ui-helper-clearfix:before,
-.ui-helper-clearfix:after {
-    content: "";
-    display: table;
-    border-collapse: collapse;
-}
-
-.ui-helper-clearfix:after {
-    clear: both;
-}
-
-.ui-widget-content {
-}
-
-.ui-widget-header {
-}
-
-/* Interaction states
-----------------------------------*/
-.ui-state-default,
-.ui-widget-content .ui-state-default,
-.ui-widget-header .ui-state-default {
-}
-
-.ui-state-default a,
-.ui-state-default a:link,
-.ui-state-default a:visited {
-}
-
-.ui-state-hover,
-.ui-widget-content .ui-state-hover,
-.ui-widget-header .ui-state-hover,
-.ui-state-focus,
-.ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
-}
-
-.ui-state-hover a,
-.ui-state-hover a:hover,
-.ui-state-hover a:link,
-.ui-state-hover a:visited,
-.ui-state-focus a,
-.ui-state-focus a:hover,
-.ui-state-focus a:link,
-.ui-state-focus a:visited {
-}
-
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active {
-}
+/* jQueryUI Tabs Styles |||||||||||||||||||||||||||||||||||||||||| */
 
 .ui-state-active a,
 .ui-state-active a:link,
@@ -120,16 +71,46 @@
     padding: .2em;
 }
 
-.ui-tabs .ui-tabs-nav {
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+    display: table;
+    border-collapse: collapse;
+    content: "";
+}
+
+.ui-helper-clearfix:after {
+    clear: both;
+}
+
+/* Main Map |||||||||||||||||||||||||||||||||||||||||| */
+#asd-map-place {
+    margin: 0 0 2em 0;
+    border: 1px solid rgba(0, 0, 0, .25);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .25);
+}
+
+#asd-map-container .canvas_map img {
+    max-width: inherit !important;
+}
+
+#asd-map-place .gm-style-iw {
+    height: auto !important;
+    color: #000;
+}
+
+/* Map Categories |||||||||||||||||||||||||||||||||||||||||| */
+#map-tabs {
     margin: 0;
-    padding: .2em .2em 0;
+    padding: 0;
+    border-bottom: 2px solid #f00;
 }
 
 .ui-tabs .ui-tabs-nav li {
-    display: inline-block;
-    list-style: none;
     position: relative;
+    display: inline-block;
     padding: 0;
+    background: #eaeaea;
+    list-style: none;
 }
 
 .ui-tabs .ui-tabs-nav .ui-tabs-anchor {
@@ -138,13 +119,34 @@
     text-decoration: none;
 }
 
-.ui-tabs .ui-tabs-nav li.ui-tabs-active {
+#map-tabs .ui-tabs-active a {
+    outline: none;
+    background: #f00;
+    color: #fff;
 }
 
-.ui-tabs .ui-tabs-nav li.ui-tabs-active.loading {
-}
+/* Map Contols |||||||||||||||||||||||||||||||||||||||||| */
 
-.ui-tabs .ui-tabs-panel {
+#asd-map-controls #ullist_a_all span {
     display: block;
-    padding: 1em 1.4em;
+    margin-bottom: 1em;
+    padding: 10px;
+    background: #f00;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+#asd-map-controls ul > li {
+    list-style-type: none;
+}
+
+/* RESPONSIVE |||||||||||||||||||||||||||||||||||||||| */
+@media only screen and (max-width: 767px) {
+
+    /* ADMIN RESPONSIVE |||||||||||||||||||||||||||||||||||||||| */
+    .post-type-asd_feature_map th.column-asd_feature_place_icon {
+        width: 10%;
+    }
+
+    /* PUBLIC RESPONSIVE |||||||||||||||||||||||||||||||||||||||| */
 }

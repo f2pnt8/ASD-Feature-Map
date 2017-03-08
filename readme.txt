@@ -1,7 +1,7 @@
 === Alex's Feature Maps ===
 Contributors: Alex Stillwagon
 Tags: feature, map, maps, locations, places, marker, pin,
-Version 1.2.6
+Version 1.3.0
 Requires at least: 3.8.0
 Tested up to: 3.9.1
 
@@ -34,10 +34,20 @@ http://www.alexstillwagon.com/
 5. Load the map display via the shortcode [feature-map]
 
 == Changelog ==
+
+1.3.0
+===
+[Fixed] Refactor JS and PHP
+[Fixed] better code comments
+[Update]  Add Icons to Select List
+[Update]  Basic CSS Styling
+
+
 1.2.9
 ===
 [Fixed] Updated ACF detection function
 [Update] Updated embed Library - ACF to 4.3.9
+[Update] Updated embed Library - MapPlace.js to 0.2.7
 
 
 1.2.6
