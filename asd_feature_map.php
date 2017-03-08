@@ -5,9 +5,10 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.9
+ * @version: 1.3.0
+ * @updated 08 Mar 2017
  * Requires at least: 3.8
- * Tested up to: 3.9.2
+ * Tested up to: 4.7.2
  *
  * Text Domain: asd_feature_map
  *
@@ -186,9 +187,9 @@ add_action ( 'wp_enqueue_scripts' , 'asd_feature_map_enqueue' );
  */
 function asd_feature_map_enqueue () {
 
-	wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.dev.css' , __FILE__ ) );
+	wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.css' , __FILE__ ) );
 	wp_register_script ( 'asd_google_maps' , '//maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7' , 'jQuery' , NULL , true );
-	wp_register_script ( 'asd_maplace' , AFM_PLUGIN_URL . 'js/maplace.js' , 'jQuery' , NULL , true );
+	wp_register_script ( 'asd_maplace' , AFM_PLUGIN_URL . 'js/maplace.min.js' , 'jQuery' , NULL , true );
 	wp_register_script ( 'asd_spin' , AFM_PLUGIN_URL . 'js/spin.js' , 'jQuery' , NULL , true );
 
 	// LOAD jQueryUI Tabs
@@ -225,7 +226,7 @@ function asd_feature_map_admin_styles () {
 	if ( is_admin () ) {
 		echo '<script type="text/javascript">var mapPath = "' . AFM_PLUGIN_URL . '";</script>';
 		// Load css for Admin side only
-		wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.dev.css' , __FILE__ ) );
+		wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.css' , __FILE__ ) );
 		wp_enqueue_script ( 'asd_feature_map_admin_js' , plugin_dir_url ( __FILE__ ) . 'js/jquery.admin.js' , array ( 'jquery' ) , NULL , true );
 	}
 }

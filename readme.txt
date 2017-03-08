@@ -3,7 +3,8 @@ Contributors: Alex Stillwagon
 Tags: feature, map, maps, locations, places, marker, pin,
 Version 1.3.0
 Requires at least: 3.8.0
-Tested up to: 3.9.1
+Tested up to: 4.7.2
+Updated 08 Mar 2017
 
 Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
 
