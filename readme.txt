@@ -1,10 +1,10 @@
-=== Alex's Feature Maps ===
+=== ASD Feature Maps ===
 Contributors: Alex Stillwagon
-Tags: feature, map, maps, locations, places, marker, pin,
-Version 1.3.0
+Tags: feature, map, maps, locations, places, marker, pin, asd
 Requires at least: 3.8.0
 Tested up to: 4.7.3
-Updated 08 Mar 2017
+Stable tag: 1.3.1
+Updated 09 Mar 2017
 
 Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
 
@@ -21,6 +21,7 @@ Load a custom place marker into a Google&trade; Map.
 * Custom Location Categories (i.e. Dining, Shopping OR Alabama, Alaska, etc.)
 * Loads via Ajax
 * Categories loaded into jQueryUI Tabs
+* Works with ACF (free) and ACF Pro
 * shortcode [feature-map]
 
 = Website =
@@ -36,6 +37,10 @@ http://www.alexstillwagon.com/
 
 == Changelog ==
 
+1.3.1
+===
+[Fixed] Backward compatible JS and CSS hooks for ACF v.4
+
 1.3.0
 ===
 [Fixed] Refactor JS and PHP
@@ -47,7 +52,7 @@ http://www.alexstillwagon.com/
 1.2.9
 ===
 [Fixed] Updated ACF detection function
-[Update] Updated embed Library - ACF to 4.3.9
+[Update] Updated embed Library - ACF to 4.4.11
 [Update] Updated embed Library - MapPlace.js to 0.2.7
 
 

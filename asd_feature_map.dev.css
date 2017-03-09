@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 /*
-* Plugin Name:Alex's Feature Maps
+* Plugin Name:ASD Feature Maps
 * Description: Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
 * @author: Alex Stillwagon
 * @package Alex's Feature Maps
 * Author URI: http://alexstillwagon.com
-* @version: 1.3.0
+* @version: 1.3.1
 * /
 
 /*
@@ -33,11 +33,15 @@ NOTE:  To use icon from plugin in theme CSS use:
     background: #fafafa;
 }
 
-[data-name="asd_feature_place_icon"] {
+[data-name="asd_feature_place_icon"],
+    /* for ACF backwards compatibility */
+#acf-asd_feature_place_icon {
     width: 50%;
 }
 
-[data-name="asd_feature_place_icon"]  .acf-input {
+[data-name="asd_feature_place_icon"]  .acf-input,
+    /* for ACF backwards compatibility */
+#acf-field-asd_feature_place_icon {
     position: relative;
     margin-left: 4em;
 }

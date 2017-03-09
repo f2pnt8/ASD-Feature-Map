@@ -226,8 +226,8 @@ function asd_feature_map_admin_styles () {
 	if ( is_admin () ) {
 		echo '<script type="text/javascript">var mapPath = "' . AFM_PLUGIN_URL . '";</script>';
 		// Load css for Admin side only
-		wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.css' , __FILE__ ) );
-		wp_enqueue_script ( 'asd_feature_map_admin_js' , plugin_dir_url ( __FILE__ ) . 'js/jquery.admin.js' , array ( 'jquery' ) , NULL , true );
+		wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.dev.css' , __FILE__ ) );
+		wp_enqueue_script ( 'asd_feature_map_admin_js' , plugin_dir_url ( __FILE__ ) . 'js/jquery.admin.dev.js' , array ( 'jquery' ) , NULL , true );
 	}
 }
 
@@ -577,6 +577,16 @@ function asd_feature_map_add_image_sizes () {
 	add_image_size ( 'asd_feature_map_icon' , 32 , 32 , true );
 }
 
+
+function  asd_feature_map_google_map_api( $api ){
+
+	$api['key'] = 'AIzaSyCJ9qw8k4lvjsxkwZ25lxHkNYxl4TqBjlQ';
+
+	return $api;
+
+}
+
+add_filter('acf/fields/google_map/api', 'asd_feature_map_google_map_api');
 /*
 |--------------------------------------------------------------------------
 | AJAX REQUEST
