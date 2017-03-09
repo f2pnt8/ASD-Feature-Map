@@ -5,7 +5,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.0
+ * @version: 1.3.1
  * @updated 08 Mar 2017
  * Requires at least: 3.8
  * Tested up to: 4.7.3
@@ -226,8 +226,8 @@ function asd_feature_map_admin_styles () {
 	if ( is_admin () ) {
 		echo '<script type="text/javascript">var mapPath = "' . AFM_PLUGIN_URL . '";</script>';
 		// Load css for Admin side only
-		wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.dev.css' , __FILE__ ) );
-		wp_enqueue_script ( 'asd_feature_map_admin_js' , plugin_dir_url ( __FILE__ ) . 'js/jquery.admin.dev.js' , array ( 'jquery' ) , NULL , true );
+		wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.css' , __FILE__ ) );
+		wp_enqueue_script ( 'asd_feature_map_admin_js' , plugin_dir_url ( __FILE__ ) . 'js/jquery.admin.js' , array ( 'jquery' ) , NULL , true );
 	}
 }
 
