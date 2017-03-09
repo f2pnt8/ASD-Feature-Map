@@ -5,7 +5,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.1
+ * @version: 1.3.2
  * @updated 08 Mar 2017
  * Requires at least: 3.8
  * Tested up to: 4.7.3
@@ -188,7 +188,7 @@ add_action ( 'wp_enqueue_scripts' , 'asd_feature_map_enqueue' );
 function asd_feature_map_enqueue () {
 
 	wp_enqueue_style ( 'asd_feature_map_css' , plugins_url ( 'asd_feature_map.css' , __FILE__ ) );
-	wp_register_script ( 'asd_google_maps' , '//maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7' , 'jQuery' , NULL , true );
+	wp_register_script ( 'asd_google_maps' , '//maps.google.com/maps/api/js?sensor=false&libraries=geometry&v=3.7&key=AIzaSyCJ9qw8k4lvjsxkwZ25lxHkNYxl4TqBjlQ' , 'jQuery' , NULL , true );
 	wp_register_script ( 'asd_maplace' , AFM_PLUGIN_URL . 'js/maplace.min.js' , 'jQuery' , NULL , true );
 	wp_register_script ( 'asd_spin' , AFM_PLUGIN_URL . 'js/spin.js' , 'jQuery' , NULL , true );
 
