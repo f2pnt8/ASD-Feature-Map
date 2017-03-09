@@ -8,7 +8,7 @@
  * @version: 1.3.0
  * @updated 08 Mar 2017
  * Requires at least: 3.8
- * Tested up to: 4.7.2
+ * Tested up to: 4.7.3
  *
  * Text Domain: asd_feature_map
  *
