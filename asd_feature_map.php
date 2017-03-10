@@ -742,7 +742,7 @@ if ( function_exists ( "register_field_group" ) ) {
 				'instructions' => 'Search for an address, city, state, point of interest, etc...' ,
 				'center_lat'   => '33.517120' ,
 				'center_lng'   => '-86.804359' ,
-				'zoom' => '4',
+//				'zoom' => '4',
 			) ,
 			array (
 				'key'           => 'field_533ce8c59024f' ,
