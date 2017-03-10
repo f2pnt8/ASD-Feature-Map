@@ -3,7 +3,7 @@ Contributors: Alex Stillwagon
 Tags: feature, map, maps, locations, places, marker, pin, asd
 Requires at least: 3.8.0
 Tested up to: 4.7.3
-Stable tag: 1.3.1
+Stable tag: 1.3.3
 Updated 09 Mar 2017
 
 Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
@@ -36,6 +36,17 @@ http://www.alexstillwagon.com/
 5. Load the map display via the shortcode [feature-map]
 
 == Changelog ==
+
+1.3.3
+===
+[Fixed] Code Clean Up
+[Fixed] Admin map no longer starts in the middle of no where
+
+
+1.3.2
+===
+[Fixed] Fix Google Map API key error
+[Update] Removed duplicate map icons
 
 1.3.1
 ===

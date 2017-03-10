@@ -4,7 +4,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.0
+ * @version: 1.3.3
  *
  * Note that jQuery is loaded in safe mode for use in WP ( i.e. no '$' var. Instead the full 'jQuery' var. )
  *
@@ -40,7 +40,7 @@ function showGroup(index) {
     jQuery(el).parent().addClass('active');
 
     // Loads post ( jQuery Ajax call ) and sends variables via POST. Returns Data Type: JSON
-    jQuery.post(MapAjax.asd_feature_map_ajaxurl, { cat: index, asd_feature_map_nonce: MapAjax.asd_feature_map_nonce, action: 'asd_feature_map_action' }, function (mapdata) {
+    jQuery.post(MapAjax.asd_feature_map_ajaxurl, {cat: index, asd_feature_map_nonce: MapAjax.asd_feature_map_nonce, action: 'asd_feature_map_action'}, function (mapdata) {
         var $item = jQuery('#map-tabs').find('li.loading');
         jQuery('#asd-map-place ').spin(false);
         $item.find('a').spin(false);

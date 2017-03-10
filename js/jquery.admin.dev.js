@@ -4,7 +4,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.1
+ * @version: 1.3.3
  */
 jQuery(document).ready(function ($) {
 
@@ -79,9 +79,11 @@ jQuery(document).ready(function ($) {
     // Set the icon based on the <select>
     var $link = $iconDiv.find('select').val();
 
-    /*
-     * Add Icon to the drop down select list
-     * */
+    /**
+     * Add Icon to the drop down select list ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+     * @type {*|jQuery|HTMLElement}
+     */
+
     // Get each option
     var $icons = $iconDiv.find('option');
 
@@ -121,7 +123,7 @@ jQuery(document).ready(function ($) {
 
 
     /**
-     * Function to Display
+     * Function to Display ||||||||||||||||||||||||||||||||||||||||||||||||||||||||
      */
 
     $iconDiv.find('select').change(function () {

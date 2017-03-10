@@ -5,7 +5,7 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.2
+ * @version: 1.3.3
  * @updated 08 Mar 2017
  * Requires at least: 3.8
  * Tested up to: 4.7.3
@@ -49,7 +49,7 @@ if ( ! defined ( 'AFM_PLUGIN_URL' ) ) {
 |--------------------------------------------------------------------------
 */
 
-// Check if user has already installed ACF Pro
+// Check if user has already installed ACF or ACF Pro
 if (
 	! in_array ( 'advanced-custom-fields/acf.php' , apply_filters ( 'active_plugins' , get_option ( 'active_plugins' ) ) ) ||
 	! in_array ( 'advanced-custom-fields-pro/acf.php' , apply_filters ( 'active_plugins' , get_option ( 'active_plugins' ) ) )
@@ -57,9 +57,6 @@ if (
 
 	// Embed Advanced Custom Fields Plugin
 	include_once ( 'includes/advanced-custom-fields/acf.php' );
-
-	// Hide ACF from the Admin Side
-	// define( 'ACF_LITE', true );
 
 }
 
@@ -349,24 +346,6 @@ function asd_feature_map_manage_columns ( $column , $post_id ) {
 	}
 }
 
-//add_action('admin_menu', 'brdesign_enable_pages');
-//
-//function brdesign_enable_pages() {
-//    add_submenu_page('edit.php?post_type=asd_feature_map', 'Custom Post Type Admin', 'Custom Settings', 'edit_posts', basename(__FILE__), 'custom_function');
-//}
-
-//if( function_exists('acf_add_options_page') ) {
-//
-//    acf_add_options_sub_page(array(
-//        'page_title' 	=> 'Feature Maps Settings',
-//        'menu_title'	=> 'Settings',
-//        'parent_slug'	=> 'edit.php?post_type=asd_feature_map',
-//        'capability'	=> 'edit_posts',
-//        'redirect'		=> false
-//    ));
-//
-//}
-
 /*
 |--------------------------------------------------------------------------
 | TEMPLATES
@@ -377,14 +356,9 @@ function asd_feature_map_manage_columns ( $column , $post_id ) {
  * Get the custom template if is set by User Theme
  *
  * @param $template
- *
  * @return mixed|void
  */
 function asd_feature_map_get_template ( $template ) {
-
-	// Get the template slug
-//    $template_slug = rtrim( $template, '.php' );
-//    $template = $template_slug . '.php';
 
 	// Check if a custom template exists in the theme folder, if not, load the plugin template file
 	if ( $theme_file = locate_template ( array ( 'feature-map/' . $template ) ) ) {
@@ -396,27 +370,6 @@ function asd_feature_map_get_template ( $template ) {
 
 	return $file;
 }
-
-//add_filter( 'template_include', 'asd_feature_map_template_chooser' );
-///**
-// * Displays Template for Archive page of Custom Post Type (CPT)
-// * @param $template
-// * @return mixed|void
-// */
-//function asd_feature_map_template_chooser( $template ) {
-//
-//    // For all other CPT
-//    if ( get_post_type() != 'asd_feature_map' ) {
-//        return $template;
-//    }
-//
-//    // Else use custom template
-//    if ( is_single() ) {
-//        return asd_feature_map_get_template( 'single-place' );
-//    }
-//
-//
-//}
 
 /*
 |--------------------------------------------------------------------------
@@ -551,7 +504,6 @@ function asd_feature_map_content_nav ( $nav_id ) {
  * Cleans text
  *
  * @param $string
- *
  * @return mixed|string
  */
 function asd_feature_map_clean_classes ( $string ) {
@@ -577,7 +529,10 @@ function asd_feature_map_add_image_sizes () {
 	add_image_size ( 'asd_feature_map_icon' , 32 , 32 , true );
 }
 
-
+add_filter('acf/fields/google_map/api', 'asd_feature_map_google_map_api');
+/*
+ * Sets the Google Map API for the Admin side in ACF
+ */
 function  asd_feature_map_google_map_api( $api ){
 
 	$api['key'] = 'AIzaSyCJ9qw8k4lvjsxkwZ25lxHkNYxl4TqBjlQ';
@@ -586,16 +541,20 @@ function  asd_feature_map_google_map_api( $api ){
 
 }
 
-add_filter('acf/fields/google_map/api', 'asd_feature_map_google_map_api');
+
 /*
 |--------------------------------------------------------------------------
-| AJAX REQUEST
+| MAP AJAX REQUEST
 |--------------------------------------------------------------------------
 */
 
 // if both logged in and not logged in users can send this AJAX request,
 // add both of these actions, otherwise add only the appropriate one
+
+//Public
 add_action ( 'wp_ajax_nopriv_asd_feature_map_action' , 'asd_feature_map_ajax' );
+
+//Admin
 add_action ( 'wp_ajax_asd_feature_map_action' , 'asd_feature_map_ajax' );
 
 /**
@@ -781,9 +740,9 @@ if ( function_exists ( "register_field_group" ) ) {
 				'name'         => 'asd_feature_map_location' ,
 				'type'         => 'google_map' ,
 				'instructions' => 'Search for an address, city, state, point of interest, etc...' ,
-				'center_lat'   => '39.011902' ,
-				'center_lng'   => '-98.484246499999985' ,
-				//                'zoom' => '12',
+				'center_lat'   => '33.517120' ,
+				'center_lng'   => '-86.804359' ,
+				'zoom' => '4',
 			) ,
 			array (
 				'key'           => 'field_533ce8c59024f' ,
