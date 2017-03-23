@@ -7,8 +7,12 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.2.5
+ * @version: 1.3.4
+ * @updated 23 Mar 2017
  */
+
+// Exit if file is accessed directly
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Get Map Categories to setup Tabs
 $map_cat_args = array (
@@ -33,7 +37,7 @@ $cat_index = ( array_shift ( array_values ( $cat_count ) ) );
 	<ul id="map-tabs">
 		<?php // CREATE TABS
 		foreach ( $map_cats as $key => $value ) {
-			echo '<li><a href="javascript:void(0)" data-load="' . $value->slug . '" id="' . $value->slug . '" title="' . $value->name . '">' . $value->name . '</a></li>';
+			echo '<li><a href="javascript:void(0)" data-load="' . esc_attr( $value->slug ). '" id="' . esc_attr( $value->slug ) . '" title="' . esc_attr( $value->name ) . '">' . esc_attr( $value->name ) . '</a></li>';
 		} ?>
 	</ul>
 
@@ -47,7 +51,7 @@ $cat_index = ( array_shift ( array_values ( $cat_count ) ) );
 			$map_height = '400px';
 		} ?>
 
-		<div id="asd-map-place" class="gmap" style="height: <?php echo $map_height; ?>"></div>
+		<div id="asd-map-place" class="gmap" style="height: <?php echo esc_attr( $map_height ); ?>"></div>
 		<div id="asd-map-controls"></div>
 
 		<script type="text/javascript">
@@ -56,7 +60,7 @@ $cat_index = ( array_shift ( array_values ( $cat_count ) ) );
 			 * @default  Load the first element of the $map_cats Array.
 			 */
 			jQuery(document).ready(function () {
-				showGroup('<?php echo $map_cats[ $cat_index ]->slug; ?>');
+				showGroup('<?php echo esc_js( $map_cats[ $cat_index ]->slug ); ?>');
 			})
 		</script>
 

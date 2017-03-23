@@ -1,10 +1,12 @@
 === ASD Feature Maps ===
+Plugin Name: ASD Feature Maps
 Contributors: Alex Stillwagon
 Tags: feature, map, maps, locations, places, marker, pin, asd
 Requires at least: 3.8.0
 Tested up to: 4.7.3
-Stable tag: 1.3.3
-Updated 09 Mar 2017
+Version: 1.3.4
+Stable Tag: 1.3.4
+Updated 23 Mar 2017
 
 Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
 
@@ -36,6 +38,12 @@ http://www.alexstillwagon.com/
 5. Load the map display via the shortcode [feature-map]
 
 == Changelog ==
+
+1.3.4
+===
+[Fixed] Added ABSPATH Restrictions
+[Fixed] Added some attribute escaping
+
 
 1.3.3
 ===

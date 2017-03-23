@@ -5,8 +5,8 @@
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.3
- * @updated 08 Mar 2017
+ * @version: 1.3.4
+ * @updated 23 Mar 2017
  * Requires at least: 3.8
  * Tested up to: 4.7.3
  *
@@ -27,6 +27,14 @@
  * Learn more at http://fgnass.github.io/spin.js/
  * Spin.js is Licensed under the MIT license
  */
+
+/*
+|--------------------------------------------------------------------------
+| BASIC SECURITY
+|--------------------------------------------------------------------------
+*/
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if file is accessed directly
 
 /*
 |--------------------------------------------------------------------------
@@ -288,7 +296,7 @@ function asd_feature_map_manage_columns ( $column , $post_id ) {
 				$icon = AFM_PLUGIN_URL . '/images/icons/marker.png';
 			}
 
-			echo '<img src="' . $icon . '" alt="map icon" height="16" width="16"/>';
+			echo '<img src="' . esc_url( $icon ) . '" alt="map icon" height="16" width="16"/>';
 
 			break;
 
@@ -301,7 +309,7 @@ function asd_feature_map_manage_columns ( $column , $post_id ) {
 				echo '';
 			}
 			else { /* If there is an sku. */
-				echo $subhead;
+				echo esc_html( $subhead );
 			}
 			break;
 
@@ -314,7 +322,7 @@ function asd_feature_map_manage_columns ( $column , $post_id ) {
 				echo '';
 			}
 			else { /* If there is an sku. */
-				echo $bubble;
+				echo esc_html( $bubble );
 			}
 			break;
 
@@ -331,7 +339,7 @@ function asd_feature_map_manage_columns ( $column , $post_id ) {
 				$array_count = count ( $map_category );
 				$i           = 1;
 				foreach ( $map_category as $term ) {
-					echo $term->name;
+					echo esc_html( $term->name );
 					if ( $array_count > $i ) {
 						echo ', ';
 					}
@@ -517,7 +525,7 @@ function asd_feature_map_clean_classes ( $string ) {
 	//Convert whitespaces and underscore to dash
 	$string = preg_replace ( "/[\\s_]/" , "-" , $string );
 
-	return $string;
+	return esc_attr( $string );
 }
 
 add_action ( 'init' , 'asd_feature_map_add_image_sizes' );
@@ -585,7 +593,7 @@ function asd_feature_map_ajax () {
 		                       array (
 			                       'taxonomy' => 'asd_map_category' ,
 			                       'field'    => 'slug' ,
-			                       'terms'    => $get_category,
+			                       'terms'    => esc_html( $get_category ),
 		                       ),
 		),
 	);
@@ -620,7 +628,7 @@ function asd_feature_map_ajax () {
 			// Map Bubble Display
 			$bubble = '';
 			if ( $place[ 'asd_feature_map_bubble' ] ) {
-				$bubble      = esc_attr ( $place[ 'asd_feature_map_bubble' ] );
+				$bubble      = $place[ 'asd_feature_map_bubble' ];
 				$show_bubble = 'true';
 			}
 			else {
@@ -630,7 +638,7 @@ function asd_feature_map_ajax () {
 			// Place Name and Subhead
 			$link = site_url ( '/map/' ) . '?location=' . $post->post_name;
 			if ( $place[ 'asd_feature_map_subhead' ] ) {
-				$place_name = '<h3>' . get_the_title () . '</h3><p>' . $place[ 'asd_feature_map_subhead' ] . '</p>';
+				$place_name = '<h3>' . get_the_title () . '</h3><p>' . esc_html( $place[ 'asd_feature_map_subhead' ] ) . '</p>';
 			}
 			else {
 				$place_name = '<h3>' . get_the_title () . '</h3>';
@@ -638,7 +646,7 @@ function asd_feature_map_ajax () {
 
 			if ( $directions ) {
 				if ( $directions == 'map' ) {
-					$place_name .= '<p class=\'directions\' data-lat=\'' . $lat . '\' data-lng=\'' . $lng . '\'  data-name=\'' . $link . '\'';
+					$place_name .= '<p class=\'directions\' data-lat=\'' . esc_attr( $lat ) . '\' data-lng=\'' . esc_attr( $lng ) . '\'  data-name=\'' . esc_attr( $link ) . '\'';
 
 					if ( $is_iphone || $is_safari ) {
 						$place_name .= ' data-os=\'true\'';
@@ -652,7 +660,7 @@ function asd_feature_map_ajax () {
 				}
 
 				if ( $directions == 'directions' ) {
-					$place_name .= '<p class=\'directions\' data-lat=\'' . $lat . '\' data-lng=\'' . $lng . '\' data-addr=\'' . str_replace ( ' ' , '+' , $place[ 'asd_feature_map_location' ][ 'address' ] ) . '\' data-name=\'' . $link . '\'';
+					$place_name .= '<p class=\'directions\' data-lat=\'' . esc_attr( $lat ) . '\' data-lng=\'' . esc_attr( $lng ) . '\' data-addr=\'' . esc_attr( str_replace ( ' ' , '+' , $place[ 'asd_feature_map_location' ][ 'address' ] ) ) . '\' data-name=\'' . esc_attr( $link ) . '\'';
 
 					if ( $is_iphone || $is_safari ) {
 						$place_name .= ' data-os=\'true\'';
@@ -694,13 +702,13 @@ function asd_feature_map_ajax () {
 
 			// Create JSON Data' . $place_name . '
 			echo '{
-                "lat": ' . $lat . ',
-                "lon": ' . $lng . ',
-                "zoom": ' . $zoom . ',
-                "show_infowindow": ' . $show_bubble . ',
+                "lat": ' . esc_attr( $lat ) . ',
+                "lon": ' . esc_attr( $lng ) . ',
+                "zoom": ' . intval( $zoom ) . ',
+                "show_infowindow": ' . boolval( $show_bubble ) . ',
                 "title": "' . $place_name . '",
-                "html": "' . $bubble . '",
-                "icon": "' . $icon . '"';
+                "html": "' . esc_html( $bubble ) . '",
+                "icon": "' . esc_url( $icon ) . '"';
 			if ( $place_counter < $count ) { // More Places
 				echo '}, ';
 			}
@@ -712,7 +720,7 @@ function asd_feature_map_ajax () {
 		// Close JSON Data
 		echo ']';
 		if ( $count == 1 ) {
-			echo ', "map_options": {"zoom": ' . $zoom . '}';
+			echo ', "map_options": {"zoom": ' . intval( $zoom ). '}';
 		}
 		echo '}';
 	}
