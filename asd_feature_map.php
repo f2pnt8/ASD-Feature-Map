@@ -1,15 +1,17 @@
 <?php
 /**
  * Plugin Name:Alex's Feature Maps
+ * Plugin URI:  https://
  * Description: Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
  * Author URI: http://alexstillwagon.com
- * @version: 1.3.4
- * @updated 23 Mar 2017
+ * @version: 1.3.5
+ * @updated 26 Mar 2017
  * Requires at least: 3.8
  * Tested up to: 4.7.3
- *
+ * License:     GPL2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: asd_feature_map
  *
  * @thanks to Daniele Moraschi for Maplace.js

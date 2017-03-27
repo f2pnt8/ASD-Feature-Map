@@ -4,9 +4,9 @@ Contributors: Alex Stillwagon
 Tags: feature, map, maps, locations, places, marker, pin, asd
 Requires at least: 3.8.0
 Tested up to: 4.7.3
-Version: 1.3.4
-Stable Tag: 1.3.4
-Updated 23 Mar 2017
+Version: 1.3.5
+Stable Tag: 1.3.5
+Updated: 26 Mar 2017
 
 Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
 
@@ -37,7 +37,23 @@ http://www.alexstillwagon.com/
 4. Create Custom Categories, if needed
 5. Load the map display via the shortcode [feature-map]
 
+== Screenshots ==
+
+= Admin Pages =
+1. Create / edit map places.
+2. Manage all places with the standard WP methods.
+3. Select a icon to show on the map or upload a custom icon file.
+
+= Frontend Membership Page =
+4. Basic frontend view showing all categories and places.
+5. Frontend view showing a place detail.
+
+
 == Changelog ==
+
+1.3.5
+===
+[Added] Screenshot images
 
 1.3.4
 ===
