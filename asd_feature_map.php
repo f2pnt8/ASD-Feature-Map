@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:Alex's Feature Maps
- * Plugin URI:  https://
+ * Plugin URI:  https://github.com/f2pnt8/ASD-Feature-Map
  * Description: Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
  * @author: Alex Stillwagon
  * @package Alex's Feature Maps
@@ -10,7 +10,7 @@
  * @updated 26 Mar 2017
  * Requires at least: 3.8
  * Tested up to: 4.7.3
- * License:     GPL2
+ * License: GPL2
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: asd_feature_map
  *

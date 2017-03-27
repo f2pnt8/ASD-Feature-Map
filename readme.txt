@@ -6,7 +6,6 @@ Requires at least: 3.8.0
 Tested up to: 4.7.3
 Version: 1.3.5
 Stable Tag: 1.3.5
-Updated: 26 Mar 2017
 
 Load locations on Google&trade; Maps using Advanced Custom Fields, Maplace.js, and jQuery.
 
@@ -25,9 +24,10 @@ Load a custom place marker into a Google&trade; Map.
 * Categories loaded into jQueryUI Tabs
 * Works with ACF (free) and ACF Pro
 * shortcode [feature-map]
+* Updated: 26 Mar 2017
 
 = Website =
-http://www.alexstillwagon.com/
+https://github.com/f2pnt8/ASD-Feature-Map
 
 == Installation ==
 
